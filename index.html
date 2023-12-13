@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Styles</title>
+    <link rel="stylesheet" href="form-elements.css" />
+    <link rel="stylesheet" href="for-preview-only.css" />
+  </head>
+  <body>
+    <div class="preview-container">
+      <form data-invalid-text="Fix the highlighted errors to submit">
+        <div class="preview-grid">
+          <label>
+            <span>Input (text)*</span>
+            <input type="text" class="form-input" required />
+          </label>
+
+          <label>
+            <span>Input (email)</span>
+            <input type="email" class="form-input" placeholder="john@example.com" required />
+            <small>Separate multiple emails with a comma</small>
+          </label>
+
+          <label>
+            <span>Input (email, multiple)</span>
+            <input type="email" multiple="" class="form-input" placeholder="john@example.com" />
+          </label>
+
+          <label>
+            <span>Input (password)</span>
+            <input type="password" class="form-input" minlength="8" />
+          </label>
+
+          <label>
+            <span>Input (date)</span>
+            <input type="date" class="form-input" />
+          </label>
+
+          <label>
+            <span>Input (datetime-local)</span>
+            <input type="datetime-local" class="form-input" />
+          </label>
+
+          <label>
+            <span>Input (month)</span>
+            <input type="month" class="form-input" />
+          </label>
+
+          <label>
+            <span>Input (number)</span>
+            <input type="number" class="form-input" min="10" max="100" />
+            <small>min=10 max=100</small>
+          </label>
+
+          <label>
+            <span>Input (search)</span>
+            <input type="search" class="form-input" />
+          </label>
+
+          <label>
+            <span>Input (time)</span>
+            <input type="time" class="form-input" />
+          </label>
+
+          <label>
+            <span>Input (week)</span>
+            <input type="week" class="form-input" />
+          </label>
+
+          <label>
+            <span>Input (tel)</span>
+            <input type="tel" multiple="" class="form-input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+            <small>Format: 123-456-7890</small>
+          </label>
+
+          <label>
+            <span>Input (url)</span>
+            <input type="url" multiple="" class="form-input" />
+          </label>
+
+          <label>
+            <span>Select</span>
+            <select class="form-select">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Select (single, with size)</span>
+            <select class="form-select" size="3">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+              <option>Option 4</option>
+              <option>Option 5</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Select (multiple)</span>
+            <select class="form-multiselect" multiple="">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+              <option>Option 4</option>
+              <option>Option 5</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Select (multiple, with size)</span>
+            <select class="form-multiselect" multiple="" size="3">
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+              <option>Option 4</option>
+              <option>Option 5</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Textarea</span>
+            <textarea class="form-textarea h-24" rows="3" placeholder="Enter some long form content."></textarea>
+          </label>
+
+          <fieldset>
+            <legend>Checkboxes</legend>
+            <div>
+              <label>
+                <input class="form-checkbox" type="checkbox" checked="" />
+                <span>Option 1</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input class="form-checkbox" type="checkbox" />
+                <span>Option 2</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input class="form-checkbox" type="checkbox" />
+                <span>Option 3</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Radio Buttons</legend>
+            <div>
+              <label>
+                <input class="form-radio" type="radio" checked="" name="radio-direct" value="1" />
+                <span>Option 1</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input class="form-radio" type="radio" name="radio-direct" value="2" />
+                <span>Option 2</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input class="form-radio" type="radio" name="radio-direct" value="3" />
+                <span>Option 3</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label>
+            <span>Input (range)</span>
+            <input type="range" />
+          </label>
+          <label>
+            <span>Input (color)</span>
+            <input type="color" />
+          </label>
+          <label>
+            <span>Input (file)</span>
+            <input type="file" accept="image/png, image/jpeg" />
+          </label>
+          <label>
+            <span>Input (file, multiple)</span>
+            <input type="file" multiple="" />
+          </label>
+          <div>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
