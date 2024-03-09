@@ -71,15 +71,7 @@ Form elements
   padding-right: 2.5rem;
 }
 
-[multiple],
-[size]:where(select:not([size='1'])) {
-  background-image: initial;
-  background-position: initial;
-  background-repeat: unset;
-  background-size: initial;
-  padding-right: calc(var(--input-pad-x) + 0.5rem);
-}
-
+/* Checkbox and radio */
 .field-checkbox,
 .field-radio {
   -webkit-appearance: none;
@@ -94,9 +86,9 @@ Form elements
   flex-shrink: 0;
   height: 1rem;
   padding: 0;
-  vertical-align: middle;
   width: 1rem;
 }
+
 .field-checkbox:checked,
 .field-radio:checked {
   background-color: currentColor;
@@ -105,23 +97,36 @@ Form elements
   background-size: 100% 100%;
   border-color: transparent;
 }
+
 .field-checkbox {
   border-radius: var(--input-radius);
 }
+
 .field-radio {
   border-radius: 100%;
 }
+
 .field-checkbox:focus,
 .field-radio:focus {
   box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--input-accent);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
 .field-checkbox:checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
 }
+
 .field-radio:checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+label:has(.field-checkbox),
+label:has(.field-radio) {
+  display: flex;
+  gap: 0.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 /* Less common elements */
@@ -197,6 +202,7 @@ Field stack
 }
 
 .field-stack input ~ .field-label,
+.field-stack textarea ~ .field-label,
 .field-stack select ~ .field-label {
   background: rgba(255, 255, 255, 0);
   border-radius: 0.25rem;
@@ -213,6 +219,9 @@ Field stack
 .field-stack input:focus ~ .field-label,
 .field-stack input:not(:placeholder-shown) ~ .field-label,
 .field-stack input:-webkit-autofill ~ .field-label,
+.field-stack textarea:focus ~ .field-label,
+.field-stack textarea:not(:placeholder-shown) ~ .field-label,
+.field-stack textarea:-webkit-autofill ~ .field-label,
 .field-stack select ~ .field-label {
   background: var(--input-background);
   font-size: var(--input-text-xs);
@@ -221,7 +230,8 @@ Field stack
   transform: translateY(-55%);
 }
 
-.field-stack input::placeholder {
+.field-stack input::placeholder,
+.field-stack textarea::placeholder {
   opacity: 0;
 }
 
