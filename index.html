@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Styles - Kitchen Sink Fields</title>
+    <link rel="stylesheet" href="form-elements.css" />
+    <link rel="stylesheet" href="for-preview-only.css" />
+  </head>
+  <body>
+    <div class="preview-container">
+      <form data-invalid-text="Fix the highlighted errors to submit">
+        <div class="preview-grid">
+          <label class="field-block" data-invalid-text="Please enter a valid email address">
+            <span class="field-label">Email *</span>
+            <input type="email" class="field-input" placeholder="john@example.com" required />
+          </label>
+
+          <label class="field-block">
+            <span class="field-label">Text</span>
+            <input type="text" id="text-1" class="field-input" />
+            <small class="field-help">Add you description here</small>
+          </label>
+
+          <label class="field-block">
+            <span class="field-label">Select</span>
+            <select class="field-select">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+          </label>
+
+          <label class="field-block">
+            <span class="field-label">Textarea</span>
+            <textarea class="h-24 field-textarea" rows="3" placeholder="Enter some long form content."></textarea>
+          </label>
+
+          <hr />
+
+          <label class="field-block field-stack">
+            <input type="text" class="field-input" placeholder=" " />
+            <span class="field-label">Stack text</span>
+            <span class="field-help">Transitioning Label, without Javascript</span>
+          </label>
+
+          <label class="field-block field-stack">
+            <select class="field-select">
+              <option>Option 1</option>
+              <option>Option 2</option>
+            </select>
+            <span class="field-label">Stacked select</span>
+          </label>
+
+          <hr />
+
+          <fieldset>
+            <legend>Checkboxes</legend>
+            <div>
+              <label>
+                <input class="field-checkbox" type="checkbox" checked />
+                <span>Option 1</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input class="field-checkbox" type="checkbox" />
+                <span>Option 2</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Radio Buttons</legend>
+            <div>
+              <label>
+                <input class="field-radio" type="radio" checked name="radio-direct" value="1" />
+                <span>Option 1</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input class="field-radio" type="radio" name="radio-direct" value="2" />
+                <span>Option 2</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div>
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

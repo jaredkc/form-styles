@@ -1,0 +1,279 @@
+:root {
+  --input-accent: #123466;
+  --input-background: #fff;
+  --input-border-color: #9ca3af;
+  --input-border-width: 1px;
+  --input-error-background: #fef2f2;
+  --input-error: #991b1b;
+  --input-line-height: 1.5;
+  --input-pad-x: 0.75rem;
+  --input-pad-y: 0.5rem;
+  --input-radius: 4px;
+  --input-text-light: #6b7281;
+  --input-text-md: 1rem;
+  --input-text-medium: #364151;
+  --input-text-sm: 0.875rem;
+  --input-text-xs: 0.75rem;
+  --input-transition-speed: 200ms;
+}
+
+/* ------------------------------
+Form elements
+------------------------------ */
+[class^='field'] {
+  /* Using transition all here causes CLS */
+  transition: box-shadow var(--input-transition-speed) ease, outline var(--input-transition-speed) ease,
+    outline-offset var(--input-transition-speed) ease, border var(--input-transition-speed) ease,
+    color var(--input-transition-speed) ease;
+}
+
+.field-label {
+  color: var(--input-text-medium);
+  font-size: var(--input-text-sm);
+}
+
+.field-help {
+  color: var(--input-text-light);
+  font-size: var(--input-text-xs);
+}
+
+.field-input,
+.field-textarea,
+.field-select {
+  appearance: none;
+  background-color: var(--input-background);
+  line-height: var(--input-line-height);
+  font-family: inherit;
+  font-size: var(--input-text-md);
+  border-radius: var(--input-radius);
+  border-style: solid;
+  border-width: var(--input-border-width);
+  border-color: var(--input-border-color);
+  padding: var(--input-pad-y) var(--input-pad-x);
+}
+
+.field-input:active,
+.field-input:focus,
+.field-textarea:active,
+.field-textarea:focus,
+.field-select:active,
+.field-select:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--input-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.field-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+/* Checkbox and radio */
+.field-checkbox,
+.field-radio {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-origin: border-box;
+  border: 1px solid var(--input-border-color);
+  color: var(--input-accent);
+  cursor: pointer;
+  display: inline-block;
+  flex-shrink: 0;
+  height: 1rem;
+  padding: 0;
+  width: 1rem;
+}
+
+.field-checkbox:checked,
+.field-radio:checked {
+  background-color: currentColor;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-color: transparent;
+}
+
+.field-checkbox {
+  border-radius: var(--input-radius);
+}
+
+.field-radio {
+  border-radius: 100%;
+}
+
+.field-checkbox:focus,
+.field-radio:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--input-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.field-checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+}
+
+.field-radio:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
+}
+
+label:has(.field-checkbox),
+label:has(.field-radio) {
+  display: flex;
+  gap: 0.25rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+/* Less common elements */
+fieldset {
+  border-color: var(--input-border-color);
+  border-radius: var(--input-radius);
+  border-width: var(--input-border-width);
+  padding: calc(var(--input-pad-x) / 4) var(--input-pad-x) var(--input-pad-x) var(--input-pad-x);
+}
+
+legend {
+  color: var(--input-text-medium);
+  font-size: var(--input-text-sm);
+  padding: 0 0.5rem;
+}
+
+.field-range {
+  appearance: none;
+  background-color: var(--input-border-color);
+  border-radius: var(--input-radius);
+  height: 6px;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+.field-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--input-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+}
+.field-range::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+.field-range:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+.field-range::-moz-range-thumb {
+  background: var(--input-accent);
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 18px;
+  width: 18px;
+}
+.field-range::-moz-range-thumb:hover {
+  transform: scale(1.2);
+}
+.field-range:active::-moz-range-thumb {
+  transform: scale(1.2);
+}
+
+/* ------------------------------
+Form block
+- To have a single input be a full width row.
+------------------------------ */
+.field-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ------------------------------
+Field stack
+- To have label appear as placeholder, and transition when the input is focused or has content
+- Require the input to have a placeholder attribute and the label to come after the input
+------------------------------ */
+.field-stack {
+  position: relative;
+}
+
+.field-stack input ~ .field-label,
+.field-stack textarea ~ .field-label,
+.field-stack select ~ .field-label {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 0.25rem;
+  font-size: var(--input-text-md);
+  line-height: var(--input-line-height);
+  padding: var(--input-pad-y) var(--input-pad-x);
+  transform: translateY(0);
+  transition: all var(--input-transition-speed) ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.field-stack input:focus ~ .field-label,
+.field-stack input:not(:placeholder-shown) ~ .field-label,
+.field-stack input:-webkit-autofill ~ .field-label,
+.field-stack textarea:focus ~ .field-label,
+.field-stack textarea:not(:placeholder-shown) ~ .field-label,
+.field-stack textarea:-webkit-autofill ~ .field-label,
+.field-stack select ~ .field-label {
+  background: var(--input-background);
+  font-size: var(--input-text-xs);
+  left: calc(var(--input-pad-x) - 0.25rem + var(--input-border-width));
+  padding: 0 0.25rem;
+  transform: translateY(-55%);
+}
+
+.field-stack input::placeholder,
+.field-stack textarea::placeholder {
+  opacity: 0;
+}
+
+/* ------------------------------
+Validation
+------------------------------ */
+.input-error {
+  border-color: var(--input-error);
+}
+
+form:invalid [type='submit'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+form:invalid::before {
+  content: attr(data-invalid-text);
+  display: block;
+  color: var(--input-error);
+  margin-bottom: 1rem;
+}
+
+label:has(input:invalid),
+label:has(select:invalid),
+label:has(textarea:invalid),
+label:has(input:invalid) .field-label,
+label:has(select:invalid) .field-label,
+label:has(textarea:invalid) .field-label {
+  color: var(--input-error);
+}
+
+label:has(input:invalid) input,
+label:has(select:invalid) select,
+label:has(textarea:invalid) textarea {
+  background-color: var(--input-error-background);
+  border-color: var(--input-error);
+}
+
+label:has(input:invalid)::after,
+label:has(input:invalid)::after,
+label:has(input:invalid)::after {
+  content: attr(data-invalid-text);
+  display: block;
+  font-size: var(--input-text-xs);
+}
