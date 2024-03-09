@@ -1,58 +1,54 @@
-/*------------------------------------
-  #FORMS
-------------------------------------*/
-
 :root {
-  --c-text-light: #6b7281;
-  --c-text-medium: #364151;
-  --c-text-dark: #111727;
-
-  --c-primary: #123466;
-
-  --c-border: #9ca3af;
-
-  --c-error-light: #fef2f2;
-  --c-error-dark: #991b1b;
-
-  --c-success-light: #f0fdf4;
-  --c-success-dark: #166534;
-
-  --text-sm: 0.875rem;
-  --text-xs: 0.75rem;
-
+  --input-accent: #123466;
+  --input-background: #fff;
+  --input-border-color: #9ca3af;
+  --input-border-width: 1px;
+  --input-error-background: #fef2f2;
+  --input-error: #991b1b;
   --input-line-height: 1.5;
   --input-pad-x: 0.75rem;
   --input-pad-y: 0.5rem;
-
-  --b-input-radius: 4px;
-  --b-input-width: 1px;
+  --input-radius: 4px;
+  --input-text-light: #6b7281;
+  --input-text-md: 1rem;
+  --input-text-medium: #364151;
+  --input-text-sm: 0.875rem;
+  --input-text-xs: 0.75rem;
+  --input-transition-speed: 200ms;
 }
 
-/*
+/* ------------------------------
 Form elements
-*/
+------------------------------ */
+[class^='field'] {
+  /* Using transition all here causes CLS */
+  transition: box-shadow var(--input-transition-speed) ease, outline var(--input-transition-speed) ease,
+    outline-offset var(--input-transition-speed) ease, border var(--input-transition-speed) ease,
+    color var(--input-transition-speed) ease;
+}
 
 .field-label {
-  color: var(--c-text-medium);
-  font-size: var(--text-sm);
+  color: var(--input-text-medium);
+  font-size: var(--input-text-sm);
 }
 
 .field-help {
-  color: var(--c-text-light);
-  font-size: var(--text-xs);
+  color: var(--input-text-light);
+  font-size: var(--input-text-xs);
 }
 
 .field-input,
 .field-textarea,
-.field-select,
-.field-multiselect {
+.field-select {
   appearance: none;
-  background-color: #fff;
+  background-color: var(--input-background);
   line-height: var(--input-line-height);
-  border-radius: var(--b-input-radius);
+  font-family: inherit;
+  font-size: var(--input-text-md);
+  border-radius: var(--input-radius);
   border-style: solid;
-  border-width: var(--b-input-width);
-  border-color: var(--c-border);
+  border-width: var(--input-border-width);
+  border-color: var(--input-border-color);
   padding: var(--input-pad-y) var(--input-pad-x);
 }
 
@@ -61,10 +57,10 @@ Form elements
 .field-textarea:active,
 .field-textarea:focus,
 .field-select:active,
-.field-select:focus,
-.field-multiselect:active,
-.field-multiselect:focus {
-  outline-offset: 3px;
+.field-select:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--input-accent);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 .field-select {
@@ -91,8 +87,8 @@ Form elements
   appearance: none;
   background-color: #fff;
   background-origin: border-box;
-  border: 1px solid var(--c-border);
-  color: var(--c-primary);
+  border: 1px solid var(--input-border-color);
+  color: var(--input-accent);
   cursor: pointer;
   display: inline-block;
   flex-shrink: 0;
@@ -110,14 +106,14 @@ Form elements
   border-color: transparent;
 }
 .field-checkbox {
-  border-radius: var(--b-input-radius);
+  border-radius: var(--input-radius);
 }
 .field-radio {
   border-radius: 100%;
 }
 .field-checkbox:focus,
 .field-radio:focus {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--c-primary);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--input-accent);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -128,10 +124,24 @@ Form elements
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
 }
 
+/* Less common elements */
+fieldset {
+  border-color: var(--input-border-color);
+  border-radius: var(--input-radius);
+  border-width: var(--input-border-width);
+  padding: calc(var(--input-pad-x) / 4) var(--input-pad-x) var(--input-pad-x) var(--input-pad-x);
+}
+
+legend {
+  color: var(--input-text-medium);
+  font-size: var(--input-text-sm);
+  padding: 0 0.5rem;
+}
+
 .field-range {
   appearance: none;
-  background-color: var(--c-border);
-  border-radius: var(--b-input-radius);
+  background-color: var(--input-border-color);
+  border-radius: var(--input-radius);
   height: 6px;
   margin: 0;
   outline: none;
@@ -140,11 +150,10 @@ Form elements
 .field-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: var(--c-primary);
+  background: var(--input-accent);
   border-radius: 50%;
   cursor: pointer;
   height: 18px;
-  transition: all 0.15s ease-in-out;
   width: 18px;
 }
 .field-range::-webkit-slider-thumb:hover {
@@ -154,12 +163,11 @@ Form elements
   transform: scale(1.2);
 }
 .field-range::-moz-range-thumb {
-  background: var(--c-primary);
+  background: var(--input-accent);
   border: 0;
   border-radius: 50%;
   cursor: pointer;
   height: 18px;
-  transition: all 0.15s ease-in-out;
   width: 18px;
 }
 .field-range::-moz-range-thumb:hover {
@@ -169,11 +177,59 @@ Form elements
   transform: scale(1.2);
 }
 
-/*
+/* ------------------------------
+Form block
+- To have a single input be a full width row.
+------------------------------ */
+.field-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ------------------------------
+Field stack
+- To have label appear as placeholder, and transition when the input is focused or has content
+- Require the input to have a placeholder attribute and the label to come after the input
+------------------------------ */
+.field-stack {
+  position: relative;
+}
+
+.field-stack input ~ .field-label,
+.field-stack select ~ .field-label {
+  background: rgba(255, 255, 255, 0);
+  border-radius: 0.25rem;
+  font-size: var(--input-text-md);
+  line-height: var(--input-line-height);
+  padding: var(--input-pad-y) var(--input-pad-x);
+  transform: translateY(0);
+  transition: all var(--input-transition-speed) ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.field-stack input:focus ~ .field-label,
+.field-stack input:not(:placeholder-shown) ~ .field-label,
+.field-stack input:-webkit-autofill ~ .field-label,
+.field-stack select ~ .field-label {
+  background: var(--input-background);
+  font-size: var(--input-text-xs);
+  left: calc(var(--input-pad-x) - 0.25rem + var(--input-border-width));
+  padding: 0 0.25rem;
+  transform: translateY(-55%);
+}
+
+.field-stack input::placeholder {
+  opacity: 0;
+}
+
+/* ------------------------------
 Validation
-*/
+------------------------------ */
 .input-error {
-  border-color: var(--c-error-dark);
+  border-color: var(--input-error);
 }
 
 form:invalid [type='submit'] {
@@ -184,21 +240,24 @@ form:invalid [type='submit'] {
 form:invalid::before {
   content: attr(data-invalid-text);
   display: block;
-  color: var(--c-error-dark);
+  color: var(--input-error);
   margin-bottom: 1rem;
 }
 
 label:has(input:invalid),
 label:has(select:invalid),
-label:has(textarea:invalid) {
-  color: var(--c-error-dark);
+label:has(textarea:invalid),
+label:has(input:invalid) .field-label,
+label:has(select:invalid) .field-label,
+label:has(textarea:invalid) .field-label {
+  color: var(--input-error);
 }
 
 label:has(input:invalid) input,
 label:has(select:invalid) select,
 label:has(textarea:invalid) textarea {
-  background-color: var(--c-error-light);
-  border-color: var(--c-error-dark);
+  background-color: var(--input-error-background);
+  border-color: var(--input-error);
 }
 
 label:has(input:invalid)::after,
@@ -206,84 +265,5 @@ label:has(input:invalid)::after,
 label:has(input:invalid)::after {
   content: attr(data-invalid-text);
   display: block;
-  margin-top: 0.25rem;
-  font-size: var(--text-xs);
-}
-
-/*
-Form layout
-*/
-.field-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-/* Inline for label & input */
-.field-row {
-  align-items: center;
-  border: 1px solid var(--c-border);
-  border-radius: var(--b-input-radius);
-  border-style: solid;
-  border-width: 1px;
-  display: flex;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  gap: 0.25rem;
-}
-
-.field-row .field-label {
-  font-size: initial;
-  max-width: 50%;
-  min-width: 116px;
-  overflow: hidden;
-  padding-left: 0.8em;
-  padding-right: 0.4em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.field-row .field-input,
-.field-row .field-select,
-.field-row .field-textarea {
-  border: 0;
-  flex-grow: 1;
-}
-
-/*
-Requirements
-- The input must have a placeholder attribute
-- The label come after the input
-*/
-.field-stack {
-  position: relative;
-  display: flex;
-  width: 100%;
-}
-
-.field-stack input ~ .field-label,
-.field-stack select ~ .field-label {
-  background: rgba(255, 255, 255, 0);
-  line-height: var(--input-line-height);
-  padding: var(--input-pad-y) var(--input-pad-x);
-  transform: translateY(0);
-  transition: top 200ms ease, font-size 200ms ease;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.field-stack input:focus ~ .field-label,
-.field-stack input:not(:placeholder-shown) ~ .field-label,
-.field-stack input:-webkit-autofill ~ .field-label,
-.field-stack select ~ .field-label {
-  background: rgba(255, 255, 255, 1);
-  font-size: var(--text-xs);
-  left: calc(var(--input-pad-x) - 0.25rem + var(--b-input-width));
-  padding: 0 0.25rem;
-  transform: translateY(-55%);
-}
-
-.field-stack input::placeholder {
-  opacity: 0;
+  font-size: var(--input-text-xs);
 }
