@@ -7,71 +7,73 @@
   --c-text-medium: #364151;
   --c-text-dark: #111727;
 
-  --c-primary-light: #e0f2fe;
-  --c-primary-medium: #123466;
-  --c-primary-dark: #002044;
+  --c-primary: #123466;
 
-  --c-border-light: #e5e7eb;
-  --c-border-medium: #9ca3af;
-  --c-border-dark: #606060;
+  --c-border: #9ca3af;
 
-  --c-error-dark: #7f1d1d;
+  --c-error-light: #fef2f2;
+  --c-error-dark: #991b1b;
 
-  --c-success-dark: #14532d;
+  --c-success-light: #f0fdf4;
+  --c-success-dark: #166534;
 
-  --text-sm: 14px;
+  --text-sm: 0.875rem;
+  --text-xs: 0.75rem;
 
+  --input-line-height: 1.5;
   --input-pad-x: 0.75rem;
   --input-pad-y: 0.5rem;
 
-  --b-input-radius: 3px;
+  --b-input-radius: 4px;
+  --b-input-width: 1px;
 }
 
 /*
 Form elements
 */
 
-.form-label {
+.field-label {
   color: var(--c-text-medium);
   font-size: var(--text-sm);
 }
 
-.form-help {
+.field-help {
+  color: var(--c-text-light);
+  font-size: var(--text-xs);
 }
 
-.form-input,
-.form-textarea,
-.form-select,
-.form-multiselect {
+.field-input,
+.field-textarea,
+.field-select,
+.field-multiselect {
   appearance: none;
   background-color: #fff;
+  line-height: var(--input-line-height);
   border-radius: var(--b-input-radius);
   border-style: solid;
-  border-width: 1px;
-  border: 1px solid var(--c-border-medium);
-  padding: 0.5rem 0.75rem;
+  border-width: var(--b-input-width);
+  border-color: var(--c-border);
+  padding: var(--input-pad-y) var(--input-pad-x);
 }
 
-.form-input:active,
-.form-input:focus,
-.form-textarea:active,
-.form-textarea:focus,
-.form-select:active,
-.form-select:focus,
-.form-multiselect:active,
-.form-multiselect:focus {
-  outline-color: var(--c-primary-medium);
-  border-color: var(--c-primary-medium);
+.field-input:active,
+.field-input:focus,
+.field-textarea:active,
+.field-textarea:focus,
+.field-select:active,
+.field-select:focus,
+.field-multiselect:active,
+.field-multiselect:focus {
+  outline-offset: 3px;
 }
 
-.form-select {
+.field-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.5rem center;
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
 }
-
 
 [multiple],
 [size]:where(select:not([size='1'])) {
@@ -82,15 +84,15 @@ Form elements
   padding-right: calc(var(--input-pad-x) + 0.5rem);
 }
 
-.form-checkbox,
-.form-radio {
+.field-checkbox,
+.field-radio {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background-color: #fff;
   background-origin: border-box;
-  border: 1px solid var(--c-border-medium);
-  color: var(--c-primary-medium);
+  border: 1px solid var(--c-border);
+  color: var(--c-primary);
   cursor: pointer;
   display: inline-block;
   flex-shrink: 0;
@@ -99,60 +101,60 @@ Form elements
   vertical-align: middle;
   width: 1rem;
 }
-.form-checkbox:checked,
-.form-radio:checked {
+.field-checkbox:checked,
+.field-radio:checked {
   background-color: currentColor;
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   border-color: transparent;
 }
-.form-checkbox {
-  border-radius: 4px;
+.field-checkbox {
+  border-radius: var(--b-input-radius);
 }
-.form-radio {
+.field-radio {
   border-radius: 100%;
 }
-.form-checkbox:focus,
-.form-radio:focus {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--c-primary-medium);
+.field-checkbox:focus,
+.field-radio:focus {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 calc(2px + 2px) var(--c-primary);
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-.form-checkbox:checked {
+.field-checkbox:checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
 }
-.form-radio:checked {
+.field-radio:checked {
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");
 }
 
-.form-range {
+.field-range {
   appearance: none;
-  background-color: var(--c-border-medium);
-  border-radius: 5px;
+  background-color: var(--c-border);
+  border-radius: var(--b-input-radius);
   height: 6px;
   margin: 0;
   outline: none;
   padding: 0;
 }
-.form-range::-webkit-slider-thumb {
+.field-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: var(--c-primary-medium);
+  background: var(--c-primary);
   border-radius: 50%;
   cursor: pointer;
   height: 18px;
   transition: all 0.15s ease-in-out;
   width: 18px;
 }
-.form-range::-webkit-slider-thumb:hover {
+.field-range::-webkit-slider-thumb:hover {
   transform: scale(1.2);
 }
-.form-range:active::-webkit-slider-thumb {
+.field-range:active::-webkit-slider-thumb {
   transform: scale(1.2);
 }
-.form-range::-moz-range-thumb {
-  background: var(--c-primary-medium);
+.field-range::-moz-range-thumb {
+  background: var(--c-primary);
   border: 0;
   border-radius: 50%;
   cursor: pointer;
@@ -160,16 +162,20 @@ Form elements
   transition: all 0.15s ease-in-out;
   width: 18px;
 }
-.form-range::-moz-range-thumb:hover {
+.field-range::-moz-range-thumb:hover {
   transform: scale(1.2);
 }
-.form-range:active::-moz-range-thumb {
+.field-range:active::-moz-range-thumb {
   transform: scale(1.2);
 }
 
 /*
 Validation
 */
+.input-error {
+  border-color: var(--c-error-dark);
+}
+
 form:invalid [type='submit'] {
   cursor: not-allowed;
   opacity: 0.5;
@@ -182,42 +188,51 @@ form:invalid::before {
   margin-bottom: 1rem;
 }
 
-.form-input:invalid,
-.form-select:invalid,
-.form-textarea:invalid {
+label:has(input:invalid),
+label:has(select:invalid),
+label:has(textarea:invalid) {
+  color: var(--c-error-dark);
+}
+
+label:has(input:invalid) input,
+label:has(select:invalid) select,
+label:has(textarea:invalid) textarea {
+  background-color: var(--c-error-light);
   border-color: var(--c-error-dark);
 }
 
-/* Form block */
-.form-block {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-
-.form-block .form-label {
+label:has(input:invalid)::after,
+label:has(input:invalid)::after,
+label:has(input:invalid)::after {
+  content: attr(data-invalid-text);
   display: block;
-  margin-bottom: 3px;
+  margin-top: 0.25rem;
+  font-size: var(--text-xs);
 }
 
-.form-block .form-input,
-.form-block .form-select,
-.form-block .form-textarea {
-  width: 100%;
+/*
+Form layout
+*/
+.field-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 /* Inline for label & input */
-.form-block-inline {
+.field-row {
   align-items: center;
-  border: 1px solid var(--c-border-medium);
+  border: 1px solid var(--c-border);
   border-radius: var(--b-input-radius);
   border-style: solid;
   border-width: 1px;
   display: flex;
   margin-bottom: 1rem;
   margin-top: 1rem;
+  gap: 0.25rem;
 }
 
-.form-block-inline .form-label {
+.field-row .field-label {
   font-size: initial;
   max-width: 50%;
   min-width: 116px;
@@ -228,23 +243,47 @@ form:invalid::before {
   white-space: nowrap;
 }
 
-.form-block-inline .form-input,
-.form-block-inline .form-select,
-.form-block-inline .form-textarea {
+.field-row .field-input,
+.field-row .field-select,
+.field-row .field-textarea {
   border: 0;
   flex-grow: 1;
 }
 
-/* Vertical forms */
-
-.form-vertical .form-input,
-.form-vertical .form-select,
-.form-vertical .form-textarea {
-  display: block;
-  margin-bottom: 0.75rem;
+/*
+Requirements
+- The input must have a placeholder attribute
+- The label come after the input
+*/
+.field-stack {
+  position: relative;
+  display: flex;
   width: 100%;
 }
 
-.input-error {
-  border-color: var(--c-error-dark);
+.field-stack input ~ .field-label,
+.field-stack select ~ .field-label {
+  background: rgba(255, 255, 255, 0);
+  line-height: var(--input-line-height);
+  padding: var(--input-pad-y) var(--input-pad-x);
+  transform: translateY(0);
+  transition: top 200ms ease, font-size 200ms ease;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.field-stack input:focus ~ .field-label,
+.field-stack input:not(:placeholder-shown) ~ .field-label,
+.field-stack input:-webkit-autofill ~ .field-label,
+.field-stack select ~ .field-label {
+  background: rgba(255, 255, 255, 1);
+  font-size: var(--text-xs);
+  left: calc(var(--input-pad-x) - 0.25rem + var(--b-input-width));
+  padding: 0 0.25rem;
+  transform: translateY(-55%);
+}
+
+.field-stack input::placeholder {
+  opacity: 0;
 }
