@@ -87,6 +87,7 @@ Form elements
   border-radius: var(--input-radius);
   border-style: solid;
   border-width: var(--input-border-width);
+  color: var(--input-text-medium);
   font-family: inherit;
   font-size: var(--input-text-md);
   line-height: var(--input-line-height);
