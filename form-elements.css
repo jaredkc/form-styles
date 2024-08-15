@@ -290,37 +290,37 @@ Validation
   border-color: var(--input-error);
 }
 
-form:invalid [type='submit'] {
+form:user-invalid [type='submit'] {
   cursor: not-allowed;
   opacity: 0.5;
 }
 
-form:invalid::before {
+form:user-invalid::before {
   content: attr(data-invalid-text);
   display: block;
   color: var(--input-error);
   margin-bottom: 1rem;
 }
 
-label:has(input:invalid),
-label:has(select:invalid),
-label:has(textarea:invalid),
-label:has(input:invalid) .field-label,
-label:has(select:invalid) .field-label,
-label:has(textarea:invalid) .field-label {
+label:has(input:user-invalid),
+label:has(select:user-invalid),
+label:has(textarea:user-invalid),
+label:has(input:user-invalid) .field-label,
+label:has(select:user-invalid) .field-label,
+label:has(textarea:user-invalid) .field-label {
   color: var(--input-error);
 }
 
-label:has(input:invalid) input,
-label:has(select:invalid) select,
-label:has(textarea:invalid) textarea {
+label:has(input:user-invalid) input,
+label:has(select:user-invalid) select,
+label:has(textarea:user-invalid) textarea {
   background-color: var(--input-error-background);
   border-color: var(--input-error);
 }
 
-label:has(input:invalid)::after,
-label:has(input:invalid)::after,
-label:has(input:invalid)::after {
+label:has(input:user-invalid)::after,
+label:has(input:user-invalid)::after,
+label:has(input:user-invalid)::after {
   content: attr(data-invalid-text);
   display: block;
   font-size: var(--input-text-xs);

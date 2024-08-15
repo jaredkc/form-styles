@@ -3,10 +3,10 @@
 Default form styles that are attractive, easy, and accessible.
 
 - Name spaced to avoid conflicts and easy to override with search and replace
-- Simple class names 
+- Simple class names
 - Focus and active states
 - "Field-stack" variation to have the label appear as placeholder text and transition when the input is focused or has content
-- Optional validation styles without any JavaScript
+- Validation styles without any JavaScript
 
 ## Example markup
 
