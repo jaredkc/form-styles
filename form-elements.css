@@ -31,6 +31,7 @@ Buttons - same height as field-input
   border-width: var(--input-border-width);
   color: var(--input-accent-light);
   cursor: pointer;
+  display: inline-block;
   font-family: inherit;
   font-size: var(--input-text-md);
   line-height: var(--input-line-height);
