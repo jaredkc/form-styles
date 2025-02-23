@@ -185,6 +185,11 @@ label:has(.field-radio) {
   color: var(--input-accent-light);
 }
 
+.field-pill:has(input:disabled) {
+  background-color: var(--input-background);
+  border-color: var(--input-border-color);
+}
+
 /* Shared focus styles */
 .btn:active,
 .btn:focus,
@@ -208,6 +213,14 @@ label:has(.field-radio) {
 .field-checkbox:active,
 .field-radio:active {
   background-color: var(--input-accent-light);
+}
+
+/* Shared disabled styles */
+[class^='field']:disabled,
+label:has(:disabled) {
+  cursor: not-allowed;
+  color: var(--input-text-light);
+  text-decoration: line-through;
 }
 
 /* Less common elements */
