@@ -13,18 +13,18 @@
         <div class="preview-grid">
           <label class="field-block" data-invalid-text="Please enter a valid email address">
             <span class="field-label">Email *</span>
-            <input type="email" class="field-input" placeholder="john@example.com" required />
+            <input name="email-1" type="email" class="field-input" placeholder="john@example.com" required />
           </label>
 
           <label class="field-block">
             <span class="field-label">Text</span>
-            <input type="text" id="text-1" class="field-input" />
+            <input name="text-1" type="text" class="field-input" />
             <small class="field-help">Add you description here</small>
           </label>
 
           <label class="field-block">
             <span class="field-label">Select</span>
-            <select class="field-select">
+            <select name="select-1" class="field-select">
               <option>Option 1</option>
               <option>Option 2</option>
             </select>
@@ -32,19 +32,19 @@
 
           <label class="field-block">
             <span class="field-label">Textarea</span>
-            <textarea class="h-24 field-textarea" rows="3" placeholder="Enter some long form content."></textarea>
+            <textarea name="textarea-1" class="h-24 field-textarea" rows="3" placeholder="Enter some long form content."></textarea>
           </label>
 
           <hr />
 
           <label class="field-block field-stack">
-            <input type="text" class="field-input" placeholder=" " />
+            <input name="text-2" type="text" class="field-input" placeholder=" " />
             <span class="field-label">Stack text</span>
             <span class="field-help">Transitioning Label, without Javascript</span>
           </label>
 
           <label class="field-block field-stack">
-            <select class="field-select">
+            <select name="select-2" class="field-select">
               <option>Option 1</option>
               <option>Option 2</option>
             </select>
@@ -53,37 +53,51 @@
 
           <hr />
 
-          <fieldset>
-            <legend>Checkboxes</legend>
+          <fieldset class="fieldset">
+            <legend class="legend">Checkboxes</legend>
             <div>
               <label>
-                <input class="field-checkbox" type="checkbox" checked />
+                <input name="checkbox-1" class="field-checkbox" type="checkbox" checked />
                 <span>Option 1</span>
               </label>
             </div>
             <div>
               <label>
-                <input class="field-checkbox" type="checkbox" />
+                <input name="checkbox-2" class="field-checkbox" type="checkbox" />
                 <span>Option 2</span>
               </label>
             </div>
           </fieldset>
 
-          <fieldset>
-            <legend>Radio Buttons</legend>
+          <fieldset class="fieldset">
+            <legend class="legend">Radio Inputs</legend>
             <div>
               <label>
-                <input class="field-radio" type="radio" checked name="radio-direct" value="1" />
+                <input name="radio-direct" class="field-radio" type="radio" value="1" checked />
                 <span>Option 1</span>
               </label>
             </div>
             <div>
               <label>
-                <input class="field-radio" type="radio" name="radio-direct" value="2" />
+                <input name="radio-direct" class="field-radio" type="radio" value="2" />
                 <span>Option 2</span>
               </label>
             </div>
           </fieldset>
+
+          <fieldset class="fieldset">
+            <legend class="legend">Radio Input Pills</legend>
+            <label class="field-pill">
+              <input name="radio-pill" type="radio" value="1" checked />
+              <span>Option 1</span>
+            </label>
+            <label class="field-pill">
+              <input name="radio-pill" type="radio" value="2" />
+              <span>Option 2</span>
+            </label>
+          </fieldset>
+
+          <hr />
 
           <div>
             <input type="submit" value="Submit" class="btn" />

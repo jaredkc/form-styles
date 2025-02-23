@@ -153,6 +153,38 @@ label:has(.field-radio) {
   padding-bottom: 0.25rem;
 }
 
+/* Pill button option for radio and checkbox */
+.field-pill {
+  align-items: center;
+  background-color: var(--input-background);
+  border-radius: 9999px;
+  border: 1px solid var(--input-border-color);
+  cursor: pointer;
+  display: inline-flex;
+  margin: 3px 8px 3px 0;
+  padding: 0.25rem 1rem;
+}
+
+.field-pill [type='radio'],
+.field-pill [type='checkbox'] {
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+.field-pill:hover {
+  background-color: var(--input-accent-light);
+  border-color: var(--input-accent-medium);
+}
+
+.field-pill:has(input:checked) {
+  background-color: var(--input-accent-medium);
+  border-color: var(--input-accent-medium);
+  color: var(--input-accent-light);
+}
+
 /* Shared focus styles */
 .btn:active,
 .btn:focus,
@@ -163,7 +195,8 @@ label:has(.field-radio) {
 .field-select:active,
 .field-select:focus,
 .field-checkbox:focus,
-.field-radio:focus {
+.field-radio:focus,
+.field-pill:focus-within {
   box-shadow: 0 0 0 2px var(--input-background), 0 0 0 calc(2px + 2px) var(--input-accent-medium);
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -178,14 +211,14 @@ label:has(.field-radio) {
 }
 
 /* Less common elements */
-fieldset {
+.fieldset {
   border-color: var(--input-border-color);
   border-radius: var(--input-radius);
   border-width: var(--input-border-width);
   padding: calc(var(--input-pad-x) / 4) var(--input-pad-x) var(--input-pad-x) var(--input-pad-x);
 }
 
-legend {
+.legend {
   color: var(--input-text-medium);
   font-size: var(--input-text-sm);
   padding: 0 0.5rem;
